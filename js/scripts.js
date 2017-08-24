@@ -59,19 +59,35 @@ function switchPlayer() {
 var winningScores = [7, 56, 448, 73, 146, 292, 273, 84]
 
 function checkWinner(Player) {
-  for (var i = 0; i <= winningScores.length; i ++) {
+  for (var i = 1; i <= winningScores.length; i ++) {
     if ((winningScores[i] & Player.score) === winningScores[i]) {
-      alert(Player.name + " wins!")
+
+      $("#winnerUL").append("<li>" + Player.name + " wins!</li>");
+
+      setTimeout(function () {
+      for (var i = 1; i < 10; i ++){
+        $("#square" + i).html("");
+        }
+      }, 1000);
+
+      newBoard = new Board(3);
+      newBoard.buildBoard();
+
+      console.log(newBoard)
     }
   }
   console.log(Player.score);
 }
 
 
-
 $(document).ready(function(){
+
   $("#square1").click(function(event){
     event.preventDefault();
+
+    // for (var i = 0; i < newBoard.grid, i ++){
+    //
+    // }
     if (!newBoard.grid[0][0].isOccupied()) {
       newBoard.grid[0][0].symbol = symbol
       newBoard.grid[0][0].value = 1

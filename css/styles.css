@@ -1,14 +1,43 @@
 body {
-  background-color: cadetblue;
+ background: linear-gradient(to right, #44a08d, #093637);
+ color: #EDE7D5;
 }
 
 .square {
-  background-color: darkgreen;
-  height: 200px;
-  width: 200px;
-  border: 2px solid black;
+  height: 20vh;
+  width: 30%;
   text-align: center;
+
 }
-h1{
-  margin-top: 78px;
+
+.cssRow {
+  border-bottom: 10px solid #EDE7D5;
+  border-radius: 24px;
+}
+
+.cssSquare {
+  border-right: 10px solid #EDE7D5;
+  border-radius: 24px;
+}
+
+
+.square > h1{
+  margin-top: 40px;
+  font-size: 140px;
+
+}
+
+.jumboTop {
+  background: transparent;
+  margin-top: 60px;
+  border: 10px solid #EDE7D5;
+  text-align: center;
+  font-size: 100px;
+}
+
+#winner{
+  border-radius: 10px;
+  background: transparent;
+  border: 10px solid #EDE7D5;
+  margin-top: 60px;
 }
