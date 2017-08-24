@@ -34,8 +34,9 @@ function Player(name, score, symbol){
   this.symbol = symbol
 }
 
-Player.prototype.updateScore = function(){
+Player.prototype.updateScore = function(player){
   var i,j;
+  this.score = 0;
   for (i = 0; i < newBoard.squaresGrid; i ++) {
     for (j = 0; j < newBoard.squaresGrid; j ++) {
       if(this.symbol === newBoard.grid[i][j].symbol){
@@ -47,16 +48,26 @@ Player.prototype.updateScore = function(){
 
 function switchPlayer() {
   if(symbol === "X"){
-    symbol = "O"
+    symbol = "O";
   }else if(symbol === "O"){
-    symbol = "X"
+    symbol = "X";
   }
 }
 
-function Game(squares) {
+// function Game(squares) {
 
-  7, 56, 448, 73, 146, 292, 273, 84
+var winningScores = [7, 56, 448, 73, 146, 292, 273, 84]
+
+function checkWinner(Player) {
+  for (var i = 0; i <= winningScores.length; i ++) {
+    if ((winningScores[i] & Player.score) === winningScores[i]) {
+      alert(Player.name + " wins!")
+    }
+  }
+  console.log(Player.score);
 }
+
+
 
 $(document).ready(function(){
   $("#square1").click(function(event){
@@ -66,8 +77,9 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square1").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
-
   });
   $("#square2").click(function(event){
     event.preventDefault();
@@ -76,6 +88,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square2").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square3").click(function(event){
@@ -85,6 +99,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square3").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square4").click(function(event){
@@ -94,6 +110,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square4").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square5").click(function(event){
@@ -103,6 +121,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square5").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square6").click(function(event){
@@ -112,6 +132,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square6").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square7").click(function(event){
@@ -121,6 +143,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square7").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square8").click(function(event){
@@ -130,6 +154,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square8").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
   });
   $("#square9").click(function(event){
@@ -139,6 +165,8 @@ $(document).ready(function(){
     player1.updateScore();
     player2.updateScore();
     $("#square9").html("<h1>" + symbol + "</h1>")
+    checkWinner(player1);
+    checkWinner(player2);
     switchPlayer();
     console.log(newBoard);
     console.log(player1);
